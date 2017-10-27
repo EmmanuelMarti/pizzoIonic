@@ -4,6 +4,11 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Pizza</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only>
+            <ion-icon name="cart"></ion-icon>
+        </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -37,7 +42,7 @@
 
 		</ion-list>
 	</form>
-	<ion-card *ngFor="let pizza of data">
+	<ion-card *ngFor="let pizza of data" (click)="AjoutPanier()">
 
 		<ion-item >
     		<h2>{{pizza.name}}</h2>

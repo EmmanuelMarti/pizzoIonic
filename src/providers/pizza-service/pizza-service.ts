@@ -31,18 +31,5 @@ export class PizzaService {
   		})
   	});
   }
-  getOnePizza(name: String){
-  	if(this.data){
-  		return Promise.resolve(this.data);
-  	}
-
-  	return new Promise(resolve =>{
-  		this.http.get(this.url)
-  		.subscribe(data =>{
-  			this.data = data;
-  			resolve(this.data);
-  		})
-  	});
-  }
 
 }

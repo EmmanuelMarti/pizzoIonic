@@ -19,6 +19,7 @@ import { PizzaService } from '../../providers/pizza-service/pizza-service';
 export class PizzaPage {
 
 //déclaration des variables de classes
+	nbPizza : Number = 0 ;
 	base64Image:String;
 	pizzaForm : any;
 	data : any;
@@ -48,6 +49,12 @@ export class PizzaPage {
 	 	// Handle error
 
 		});
+	}
+
+	AjoutPanier(){
+		this.nbPizza ++;
+		console.log(this.nbPizza);
+		console.log("Ajout de la pizza dans le panier");
 	}
 
   ionViewDidLoad() {
