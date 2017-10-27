@@ -9,11 +9,47 @@
 
 <ion-content padding>
 	<h3>Je suis sur la page de pizza</h3>
-  <h3>Ionic Menu Starter</h3>
+	<form (ngSubmit)="logForm()" #heroForm="ngForm">
+		<ion-list>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+			<ion-item>
+			    <ion-label floating>Nom de la pizza</ion-label>
+			    <ion-input type="text" [(ngModel)]="pizzaForm.name" name="name"></ion-input>
+			</ion-item>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+			<ion-item>
+			    <ion-label floating>Description de la pizza</ion-label>
+			    <ion-input type="text" [(ngModel)]="pizzaForm.description" name="description"></ion-input>
+			</ion-item>
+
+			<ion-item>
+			    <ion-label floating>Ingrédients de la pizza</ion-label>
+			    <ion-input type="text" [(ngModel)]="pizzaForm.ingredients" name="ingredients"></ion-input>
+			</ion-item>
+
+			<ion-item>
+			    <ion-label floating>Prix de la pizza</ion-label>
+			    <ion-input type="text" [(ngModel)]="pizzaForm.price" name="price"></ion-input>
+			</ion-item>
+			<br />
+			<button ion-button secondary (click)="runCamera()">Ouvrir la caméra</button>
+			<button ion-button type="submit" block>Enregistrer</button>
+
+		</ion-list>
+	</form>
+	<ion-card *ngFor="let pizza of data">
+
+		<ion-item >
+    		<h2>{{pizza.name}}</h2>
+  		</ion-item>
+
+
+	  	<img src="{{pizza.picture}}">
+
+	  	<ion-card-content>
+	    	<p><b>prix :</b> {{pizza.price}} €</p>
+	    	<p><b>description : </b>{{pizza.desc}}</p>
+	  	</ion-card-content>
+
+	</ion-card>
 </ion-content>
