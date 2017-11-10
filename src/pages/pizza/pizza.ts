@@ -3,6 +3,9 @@ import { IonicPage, NavController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
 import { PizzaService } from '../../providers/pizza-service/pizza-service';
+import { ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
+import { PizzaDetailPage } from '../pizza-detail/pizza-detail';
+import { Pizza } from '../../models/pizza'; 
 
 /**
  * Generated class for the PizzaPage page.
@@ -19,7 +22,7 @@ import { PizzaService } from '../../providers/pizza-service/pizza-service';
 export class PizzaPage {
 
 //déclaration des variables de classes
-	nbPizza : Number = 0 ;
+	nbPizza : Number = 0;
 	base64Image:String;
 	pizzaForm : any;
 	data : any;
@@ -30,8 +33,7 @@ export class PizzaPage {
   		mediaType: this.camera.MediaType.PICTURE
 	};
   constructor(public navCtrl: NavController, private camera: Camera, private base64ToGallery : Base64ToGallery, 
-  				public pizzaService: PizzaService
-  ) {
+  	public pizzaService: PizzaService, public modalCtrl: ModalController) {
   	this.pizzaForm = new Pizza();
   }
 
@@ -51,11 +53,17 @@ export class PizzaPage {
 		});
 	}
 
-	AjoutPanier(){
-		this.nbPizza ++;
+	openModal(pizza) {
+		console.log("salut");
+	    let modal = this.modalCtrl.create(PizzaDetailPage, pizza);
+    	modal.present();
+  	}
+
+	/*AjoutPanier(){
+		this.nbPizza;
 		console.log(this.nbPizza);
 		console.log("Ajout de la pizza dans le panier");
-	}
+	}*/
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PizzaPage');
@@ -67,26 +75,3 @@ export class PizzaPage {
 
 }
 
-
-class Pizza {
-	constructor(
-		name: String,
-		description: String,
-		price : String,
-		ingredients : String,
-		image: String
-	){
-
-	}
-	constructor(
-	){
-		this.name = "";
-		this.description = "";
-		this.price = "";
-		this.ingredients= "";
-		this.image = "";
-	}
-	
-
-
-}

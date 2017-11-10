@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { PizzaAjoutPage } from '../pages/pizza-ajout/pizza-ajout';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -24,7 +25,8 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
-      { title: 'Pizza', component : PizzaPage}
+      { title: 'Pizza', component : PizzaPage},
+      { title: 'Gestion des pizzas', component : PizzaAjoutPage},
     ];
 
   }

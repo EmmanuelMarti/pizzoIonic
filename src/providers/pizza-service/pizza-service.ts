@@ -11,25 +11,47 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class PizzaService {
 
-	data: any;
 	// mettre l'url de sa machine
-	private url = "http:\/\/10.13.2.167:8080\/pizza";
+	private url = "http:\/\/pizzatp-manumarti.c9users.io\/pizzas\/";
   constructor(public http: HttpClient) {
     console.log('Hello PizzaServiceProvider Provider');
   }
 
   get(){
-  	if(this.data){
-  		return Promise.resolve(this.data);
-  	}
-
   	return new Promise(resolve =>{
   		this.http.get(this.url)
   		.subscribe(data =>{
-  			this.data = data;
-  			resolve(this.data);
+  			resolve(data);
   		})
   	});
+  }
+
+  getById(id: number){
+    return new Promise(resolve =>{
+      this.http.get(this.url + id)
+      .subscribe(data => {
+        resolve(data);
+      })
+    });
+  }
+
+
+  post(data){
+    return new Promise(resolve =>{
+      this.http.post(this.url,data)
+      .subscribe(res => {
+        resolve(res);
+      })
+    });
+  }
+
+  deletePizza(id: number){
+     return new Promise(resolve =>{
+      this.http.delete(this.url + id)
+      .subscribe(res => {
+        resolve(res);
+      })
+    });
   }
 
 }

@@ -9,17 +9,25 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { PizzaPage } from '../pages/pizza/pizza';
+import { PizzaDetailPage } from '../pages/pizza-detail/pizza-detail';
+import { PizzaAjoutPage } from '../pages/pizza-ajout/pizza-ajout';
+import { AddPizzaPage } from '../pages/add-pizza/add-pizza';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PizzaService } from '../providers/pizza-service/pizza-service';
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-    PizzaPage
+    PizzaPage,
+    PizzaDetailPage,
+    PizzaAjoutPage,
+    AddPizzaPage,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +39,10 @@ import { PizzaService } from '../providers/pizza-service/pizza-service';
     MyApp,
     HomePage,
     ListPage,
-    PizzaPage
+    PizzaPage,
+    PizzaDetailPage,
+    PizzaAjoutPage,
+    AddPizzaPage,
   ],
   providers: [
     StatusBar,
