@@ -22,7 +22,7 @@
   			<ion-icon name="pizza"></ion-icon>
     		{{ pizza.name }}
     		<ion-icon name="trash" class="trash" (click)="DeletePizza(pizza._id)"></ion-icon>
-    		<ion-icon name="create" class="create" (click)="ModifPizza()"></ion-icon>
+    		<ion-icon name="create" class="create" (click)="ModifPizza(pizza)"></ion-icon>
   		</div> 
 	</ion-list>
 	<ion-fab right bottom>

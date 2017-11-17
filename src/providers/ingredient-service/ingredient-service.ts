@@ -3,18 +3,17 @@ import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
 /*
-  Generated class for the PizzaServiceProvider provider.
+  Generated class for the IngredientServiceProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
 @Injectable()
-export class PizzaService {
+export class IngredientServiceProvider {
 
-	// mettre l'url de sa machine
-	private url = "http:\/\/pizzatp-manumarti.c9users.io\/pizzas\/";
+  private url = "http:\/\/pizzatp-manumarti.c9users.io\/ingredient\/";
   constructor(public http: HttpClient) {
-    console.log('Hello PizzaServiceProvider Provider');
+    console.log('Hello IngredientServiceProvider Provider');
   }
 
   get(){
@@ -37,6 +36,7 @@ export class PizzaService {
 
 
   post(data){
+  	this.url = this.url + "save";
     return new Promise(resolve =>{
       this.http.post(this.url,data)
       .subscribe(res => {
@@ -45,7 +45,8 @@ export class PizzaService {
     });
   }
 
-  deletePizza(id: String){
+  deleteIngredient(id: String){
+  	this.url = this.url + "delete/";
      return new Promise(resolve =>{
       this.http.delete(this.url + id)
       .subscribe(res => {
@@ -55,6 +56,7 @@ export class PizzaService {
   }
 
   update(data){
+  	this.url = this.url + "edit/"
     return new Promise(resolve =>{
       this.http.put(this.url + data.id, data)
       .subscribe(res => {
@@ -62,5 +64,4 @@ export class PizzaService {
       })
     });
   }
-
 }

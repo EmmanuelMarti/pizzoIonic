@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PizzaService } from '../../providers/pizza-service/pizza-service';
 import { ModalController, ViewController } from 'ionic-angular';
 import { AddPizzaPage } from '../add-pizza/add-pizza';
+import { ModifyPizzaPage } from '../modify-pizza/modify-pizza';
 
 /**
  * Generated class for the PizzaAjoutPage page.
@@ -31,8 +32,11 @@ export class PizzaAjoutPage {
     console.log('ionViewDidLoad PizzaAjoutPage');
   }
 
-  	ModifPizza(){
+  	ModifPizza(pizza){
     	console.log("je clique dessus");
+      let modal = this.modalCtrl.create(ModifyPizzaPage, pizza);
+      modal.present();
+
     }
 
     DeletePizza(id: String){
@@ -51,5 +55,7 @@ export class PizzaAjoutPage {
 	    let modal = this.modalCtrl.create(AddPizzaPage);
     	modal.present();
   	}
+
+      
 
 }

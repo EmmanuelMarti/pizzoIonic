@@ -64,6 +64,7 @@ export class AddPizzaPage {
     let day = date.getDate();
     let dateConcat = day + "/" + month + "/" + year;
     this.pizzaForm.dateCreated = dateConcat;
+    this.pizzaForm.image = this.base64Image;
     console.log(this.pizzaForm);
     this.pizzaService.post(this.pizzaForm);
   }

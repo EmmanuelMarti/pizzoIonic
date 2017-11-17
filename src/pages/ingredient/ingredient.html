@@ -1,0 +1,32 @@
+<!--
+  Generated template for the IngredientPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Ingrédients</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<ion-list inset>
+  		<div ion-item *ngFor="let ingredient of data">
+  			<ion-icon name="pizza"></ion-icon>
+    		{{ ingredient.name }}
+    		<ion-icon name="trash" class="trash" (click)="deletePizza(ingredient._id)"></ion-icon>
+    		<ion-icon name="create" class="create" (click)="modifyPizza(ingredient)"></ion-icon>
+  		</div> 
+	</ion-list>
+	<ion-fab right bottom>
+    	<button ion-fab color="red" (click)="addIngredient()">
+    		<ion-icon name="add"></ion-icon>
+    	</button>
+  	</ion-fab>
+	<button ion-button secondary menuToggle>Toggle Menu</button>
+</ion-content>

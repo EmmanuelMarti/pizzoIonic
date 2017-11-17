@@ -12,11 +12,16 @@ import { PizzaPage } from '../pages/pizza/pizza';
 import { PizzaDetailPage } from '../pages/pizza-detail/pizza-detail';
 import { PizzaAjoutPage } from '../pages/pizza-ajout/pizza-ajout';
 import { AddPizzaPage } from '../pages/add-pizza/add-pizza';
+import { ModifyPizzaPage } from '../pages/modify-pizza/modify-pizza';
+import { IngredientPage } from '../pages/ingredient/ingredient';
+import { AjoutIngredientPage } from '../pages/ajout-ingredient/ajout-ingredient';
+import { ModifyIngredientPage } from '../pages/modify-ingredient/modify-ingredient';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PizzaService } from '../providers/pizza-service/pizza-service';
+import { IngredientServiceProvider } from '../providers/ingredient-service/ingredient-service';
 
 
 @NgModule({
@@ -28,6 +33,10 @@ import { PizzaService } from '../providers/pizza-service/pizza-service';
     PizzaDetailPage,
     PizzaAjoutPage,
     AddPizzaPage,
+    ModifyPizzaPage,
+    IngredientPage,
+    AjoutIngredientPage,
+    ModifyIngredientPage
   ],
   imports: [
     BrowserModule,
@@ -43,6 +52,10 @@ import { PizzaService } from '../providers/pizza-service/pizza-service';
     PizzaDetailPage,
     PizzaAjoutPage,
     AddPizzaPage,
+    ModifyPizzaPage,
+    IngredientPage,
+    AjoutIngredientPage,
+    ModifyIngredientPage
   ],
   providers: [
     StatusBar,
@@ -50,7 +63,8 @@ import { PizzaService } from '../providers/pizza-service/pizza-service';
     Camera,
     Base64ToGallery,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PizzaService
+    PizzaService,
+    IngredientServiceProvider
   ]
 })
 export class AppModule {}

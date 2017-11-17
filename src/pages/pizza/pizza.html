@@ -13,35 +13,6 @@
 </ion-header>
 
 <ion-content padding>
-	<h3>Je suis sur la page de pizza</h3>
-	<form (ngSubmit)="logForm()" #heroForm="ngForm">
-		<ion-list>
-
-			<ion-item>
-			    <ion-label floating>Nom de la pizza</ion-label>
-			    <ion-input type="text" [(ngModel)]="pizzaForm.name" name="name"></ion-input>
-			</ion-item>
-
-			<ion-item>
-			    <ion-label floating>Description de la pizza</ion-label>
-			    <ion-input type="text" [(ngModel)]="pizzaForm.description" name="description"></ion-input>
-			</ion-item>
-
-			<ion-item>
-			    <ion-label floating>Ingrédients de la pizza</ion-label>
-			    <ion-input type="text" [(ngModel)]="pizzaForm.ingredients" name="ingredients"></ion-input>
-			</ion-item>
-
-			<ion-item>
-			    <ion-label floating>Prix de la pizza</ion-label>
-			    <ion-input type="text" [(ngModel)]="pizzaForm.price" name="price"></ion-input>
-			</ion-item>
-			<br />
-			<button ion-button secondary (click)="runCamera()">Ouvrir la caméra</button>
-			<button ion-button type="submit" block>Enregistrer</button>
-
-		</ion-list>
-	</form>
 	<ion-card *ngFor="let pizza of data" (click)="openModal(pizza)">
 
 		<ion-item >
@@ -49,7 +20,7 @@
   		</ion-item>
 
 
-	  	<img src="{{pizza.picture}}">
+	  	<img src="{{pizza.image}}">
 
 	  	<ion-card-content>
 	    	<p><b>prix :</b> {{pizza.price}}</p>

@@ -1,5 +1,5 @@
 <!--
-  Generated template for the AddPizzaPage page.
+  Generated template for the ModifyPizzaPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,16 +7,14 @@
 <ion-header>
 
   	<ion-navbar>
-  		<button ion-button menuToggle>
-      		<ion-icon name="menu"></ion-icon>
-    	</button>
-    	<ion-title>AddPizza</ion-title>
+    	<ion-title>ModifyPizza</ion-title>
     	<ion-buttons end (click)="dismiss()">
-        	<button ion-button icon-only>
-           		<ion-icon name="close" ></ion-icon>
-        	</button>
+       		<button ion-button icon-only>
+      			<ion-icon name="close" ></ion-icon>
+       		</button>
     	</ion-buttons>
- 	</ion-navbar>
+  	</ion-navbar>
+  	
 
 </ion-header>
 
@@ -35,20 +33,32 @@
 			    <ion-input type="text" [(ngModel)]="pizzaForm.description" name="description"></ion-input>
 			</ion-item>
 
-			<ion-item>
+			<!-- <ion-item>
 			    <ion-label floating>Ingrédients de la pizza</ion-label>
 			    <ion-input type="text" [(ngModel)]="pizzaForm.ingredients" name="ingredients"></ion-input>
-			</ion-item>
+			</ion-item> -->
 
 			<ion-item>
 			    <ion-label floating>Prix de la pizza</ion-label>
 			    <ion-input type="text" [(ngModel)]="pizzaForm.price" name="price"></ion-input>
 			</ion-item>
+
+			<ion-item>
+			    <ion-label floating>Date de la création de la pizza</ion-label>
+			    <ion-input type="text" [(ngModel)]="pizzaForm.dateCreated" name="dateCreated"></ion-input>
+			</ion-item>
+
+			<ion-item>
+			    <ion-label floating>date de la dernière modification de la pizza</ion-label>
+			    <ion-input type="text" [(ngModel)]="pizzaForm.dateUpdated" name="dateUpdated"></ion-input>
+			</ion-item>
+
 			<br />
+
+			<img *ngIf="this.pizzaForm.image" src="{{pizzaForm.image}}">
 			<button ion-button secondary (click)="runCamera()">Ouvrir la caméra</button>
 			<button ion-button type="submit" block>Enregistrer</button>
 
 		</ion-list>
 	</form>
-	<img src="{{base64Image}}">
 </ion-content>

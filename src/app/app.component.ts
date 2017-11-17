@@ -7,6 +7,7 @@ import { PizzaAjoutPage } from '../pages/pizza-ajout/pizza-ajout';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { PizzaPage } from '../pages/pizza/pizza';
+import { IngredientPage } from '../pages/ingredient/ingredient';
 
 @Component({
   templateUrl: 'app.html'
@@ -27,6 +28,8 @@ export class MyApp {
       { title: 'List', component: ListPage },
       { title: 'Pizza', component : PizzaPage},
       { title: 'Gestion des pizzas', component : PizzaAjoutPage},
+      { title: 'Gestion des ingrédients', component : IngredientPage},
+
     ];
 
   }
