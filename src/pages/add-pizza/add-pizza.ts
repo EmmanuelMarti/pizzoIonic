@@ -4,7 +4,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
 import { PizzaService } from '../../providers/pizza-service/pizza-service';
 import { Platform, ViewController,NavParams } from 'ionic-angular';
-import { Pizza } from '../../models/pizza'; 
+import { Pizza } from '../../models/pizza';
+import { IngredientServiceProvider } from '../../providers/ingredient-service/ingredient-service'; 
 
 /**
  * Generated class for the AddPizzaPage page.
@@ -21,6 +22,8 @@ import { Pizza } from '../../models/pizza';
 export class AddPizzaPage {
 
   base64Image:String;
+  data : any;
+  saveData: any;
   pizzaForm : any;
   options: CameraOptions = {
     quality: 100,
@@ -30,11 +33,22 @@ export class AddPizzaPage {
   };
 
   constructor(public navCtrl: NavController, private camera: Camera, private base64ToGallery : Base64ToGallery, 
-    public pizzaService: PizzaService, public viewCtrl: ViewController) {
+    public pizzaService: PizzaService, public viewCtrl: ViewController, public ingredientService: IngredientServiceProvider) {
     this.pizzaForm = new Pizza();
   }
 
   ionViewDidLoad() {
+    this.ingredientService.get().then(data =>{
+      this.data = data;
+      console.log(this.data.length);
+      for(let i = 0; i < this.data.length; i++){
+        this.data[0].check = false;
+      }
+      console.log(this.data);
+    }); 
+/*    angular.forEach(this.data, (values, key)=>{
+        this.data[key].check = false;
+    });*/
     console.log('ionViewDidLoad AddPizzaPage');
   }
 
@@ -58,6 +72,16 @@ export class AddPizzaPage {
   }
 
   logForm(){
+    let ingredients = [];
+    for(let i = 0; i < this.data.length; i++){
+      if(this.data[i].check == true){
+          ingredients.push(this.data[i]._id);
+      }
+    }
+    console.log(ingredients);
+   /* angular.forEach(this.data, function(value,key){
+      console.log(value);
+    });*/
     let date = new Date();
     let year = date.getFullYear();
     let month = date.getMonth();
@@ -65,6 +89,7 @@ export class AddPizzaPage {
     let dateConcat = day + "/" + month + "/" + year;
     this.pizzaForm.dateCreated = dateConcat;
     this.pizzaForm.image = this.base64Image;
+    this.pizzaForm.ingredients = ingredients;
     console.log(this.pizzaForm);
     this.pizzaService.post(this.pizzaForm);
   }

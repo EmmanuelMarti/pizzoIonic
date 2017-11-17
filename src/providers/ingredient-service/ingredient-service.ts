@@ -36,9 +36,8 @@ export class IngredientServiceProvider {
 
 
   post(data){
-  	this.url = this.url + "save";
     return new Promise(resolve =>{
-      this.http.post(this.url,data)
+      this.http.post(this.url + "save",data)
       .subscribe(res => {
         resolve(res);
       })
@@ -46,9 +45,8 @@ export class IngredientServiceProvider {
   }
 
   deleteIngredient(id: String){
-  	this.url = this.url + "delete/";
      return new Promise(resolve =>{
-      this.http.delete(this.url + id)
+      this.http.delete(this.url +"delete/" + id)
       .subscribe(res => {
         resolve(res);
       })
@@ -56,9 +54,8 @@ export class IngredientServiceProvider {
   }
 
   update(data){
-  	this.url = this.url + "edit/"
     return new Promise(resolve =>{
-      this.http.put(this.url + data.id, data)
+      this.http.put(this.url + "edit/" + data.id, data)
       .subscribe(res => {
         resolve(res);
       })

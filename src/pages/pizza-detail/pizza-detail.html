@@ -26,7 +26,11 @@
 
   <p>Description : {{data.description}} </p>
   <p>Prix : {{data.price}} </p>
-  <p *ngIf="data.ingredients">Ingrédients : {{data.ingredients}} </p>
+  <p *ngIf="data.ingredients">Ingrédients : 
+    <span *ngFor="let ingredient of data.ingredients">
+      {{ingredient.name}}, 
+    </span>
+  </p>
 
   <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>

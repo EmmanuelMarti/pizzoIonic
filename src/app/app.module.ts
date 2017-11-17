@@ -36,7 +36,7 @@ import { IngredientServiceProvider } from '../providers/ingredient-service/ingre
     ModifyPizzaPage,
     IngredientPage,
     AjoutIngredientPage,
-    ModifyIngredientPage
+    ModifyIngredientPage,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +55,7 @@ import { IngredientServiceProvider } from '../providers/ingredient-service/ingre
     ModifyPizzaPage,
     IngredientPage,
     AjoutIngredientPage,
-    ModifyIngredientPage
+    ModifyIngredientPage,
   ],
   providers: [
     StatusBar,

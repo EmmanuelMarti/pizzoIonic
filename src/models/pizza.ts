@@ -4,7 +4,8 @@ export class Pizza {
 		public name: String = "",
 		public description: String = "",
 		public price : String = "",
-		public image: String = ""
+		public image: String = "",
+		public ingredients: String[] = []
 	){
 
 	}
