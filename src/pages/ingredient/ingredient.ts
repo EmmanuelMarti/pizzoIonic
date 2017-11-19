@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { IngredientServiceProvider } from '../../providers/ingredient-service/ingredient-service';
-import { ModalController, ViewController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import { AjoutIngredientPage } from '../ajout-ingredient/ajout-ingredient';
 import { ModifyIngredientPage } from '../modify-ingredient/modify-ingredient';
 

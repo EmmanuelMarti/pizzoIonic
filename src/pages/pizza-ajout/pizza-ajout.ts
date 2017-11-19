@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PizzaService } from '../../providers/pizza-service/pizza-service';
-import { ModalController, ViewController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import { AddPizzaPage } from '../add-pizza/add-pizza';
 import { ModifyPizzaPage } from '../modify-pizza/modify-pizza';
 

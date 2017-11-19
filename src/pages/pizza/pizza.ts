@@ -3,7 +3,7 @@ import { IonicPage, NavController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
 import { PizzaService } from '../../providers/pizza-service/pizza-service';
-import { ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import { PizzaDetailPage } from '../pizza-detail/pizza-detail';
 import { Pizza } from '../../models/pizza'; 
 
