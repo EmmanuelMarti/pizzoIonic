@@ -16,6 +16,7 @@ import { Ingredient } from '../../models/ingredient';
 })
 export class AjoutIngredientPage {
 
+  msg:any;
   ingredientForm : any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, 
   	public ingredientService: IngredientServiceProvider) {
@@ -32,7 +33,9 @@ export class AjoutIngredientPage {
 
   addIngredient(){
   	console.log(this.ingredientForm);
-  	this.ingredientService.post(this.ingredientForm);
+  	this.ingredientService.post(this.ingredientForm).then(data=>{
+      this.msg = "Votre ingrédient a bien été créé ";
+    });
   }
 
   

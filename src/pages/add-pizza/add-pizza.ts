@@ -21,6 +21,7 @@ import { IngredientServiceProvider } from '../../providers/ingredient-service/in
 })
 export class AddPizzaPage {
 
+  msg:any;
   base64Image:String;
   data : any;
   saveData: any;
@@ -91,6 +92,8 @@ export class AddPizzaPage {
     this.pizzaForm.image = this.base64Image;
     this.pizzaForm.ingredients = ingredients;
     console.log(this.pizzaForm);
-    this.pizzaService.post(this.pizzaForm);
+    this.pizzaService.post(this.pizzaForm).then(data=>{
+      this.msg ="Votre pizza a bien été créée";
+    });
   }
 }

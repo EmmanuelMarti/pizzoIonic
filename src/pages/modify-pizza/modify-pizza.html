@@ -20,6 +20,7 @@
 
 
 <ion-content padding>
+	<h1 *ngIf="msg">{{msg}}</h1>
 	<form (ngSubmit)="logForm()" #heroForm="ngForm">
 		<ion-list>
 

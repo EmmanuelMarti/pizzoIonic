@@ -18,6 +18,7 @@
 
 
 <ion-content padding>
+  <h1 *ngIf="msg">{{msg}}</h1>
   <form (ngSubmit)="addIngredient()" #heroForm="ngForm">
 		<ion-list>
 			<ion-item>

@@ -20,6 +20,7 @@ export class ModifyPizzaPage {
 
   pizzaForm : any;
   dataIngredient: any;
+  msg: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public pizzaService: PizzaService,
     public ingredientService: IngredientServiceProvider) {
   	this.pizzaForm = new Pizza();
@@ -54,7 +55,9 @@ export class ModifyPizzaPage {
     }
     this.pizzaForm.ingredients = ingredients;
     //console.log(ingredients);
-  	this.pizzaService.update(this.pizzaForm);
+  	this.pizzaService.update(this.pizzaForm).then(data=>{
+      this.msg = "Votre pizza a bien été modifiée";
+    });
   }
 
   getIngredient(){

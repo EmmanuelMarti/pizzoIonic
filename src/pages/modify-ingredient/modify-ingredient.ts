@@ -18,6 +18,7 @@ import { Ingredient } from '../../models/ingredient';
 export class ModifyIngredientPage {
 
   ingredientForm:any;
+  msg: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, 
     public ingredientService: IngredientServiceProvider) {
   	this.ingredientForm = new Ingredient();
@@ -37,7 +38,9 @@ export class ModifyIngredientPage {
 
   ModifyIngredient(){
     console.log(this.ingredientForm);
-    this.ingredientService.update(this.ingredientForm);
+    this.ingredientService.update(this.ingredientForm).then(data=>{
+      this.msg = "Votre ingrédient a bien été modifié";
+    });
   }
 
 }
